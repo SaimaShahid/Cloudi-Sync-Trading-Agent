@@ -1,0 +1,15 @@
+{
+  "name": "Cloudi",
+  "ticker": "CLI",
+  "description": "Cybersecurity-first AI Trading Agent on Base. ERC-8004 compliant for trust and risk management.",
+  "version": "1.0.0",
+  "author": "Saima Shahid",
+  "network": "Base",
+  "capabilities": [
+    "risk_management",
+    "on_chain_audit",
+    "automated_trading"
+  ],
+  "security_level": "High",
+  "framework": "OpenClaw"
+}
