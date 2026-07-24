@@ -19,3 +19,18 @@ export const findUserByEmail = async (email, options = {}) => {
 };
 
 export const findUserById = async (userId) => User.findById(userId).exec();
+
+export const listUsers = async () => User.find().sort({ createdAt: -1 }).exec();
+
+export const updateUserById = async (userId, updates) => {
+  const user = await User.findById(userId).exec();
+
+  if (!user) {
+    return null;
+  }
+
+  Object.assign(user, updates);
+  await user.save();
+
+  return user;
+};

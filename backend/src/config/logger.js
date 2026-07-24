@@ -5,6 +5,20 @@ import { env } from './env.js';
 
 export const logger = pino({
   level: env.logLevel,
+  redact: {
+    paths: [
+      'req.headers.authorization',
+      'req.headers.cookie',
+      'res.headers.set-cookie',
+      'password',
+      'passwordHash',
+      '*.password',
+      '*.passwordHash',
+      'token',
+      '*.token',
+    ],
+    censor: '[REDACTED]',
+  },
   transport:
     env.nodeEnv === 'development'
       ? {

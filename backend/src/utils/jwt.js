@@ -11,6 +11,9 @@ export const signAccessToken = (user) =>
     },
     env.jwtSecret,
     {
+      algorithm: 'HS256',
+      issuer: env.jwtIssuer,
+      audience: env.jwtAudience,
       subject: String(user.id),
       expiresIn: env.jwtExpiresIn,
     },
@@ -18,7 +21,11 @@ export const signAccessToken = (user) =>
 
 export const verifyAccessToken = (token) => {
   try {
-    return jwt.verify(token, env.jwtSecret);
+    return jwt.verify(token, env.jwtSecret, {
+      algorithms: ['HS256'],
+      issuer: env.jwtIssuer,
+      audience: env.jwtAudience,
+    });
   } catch {
     throw new AppError('Invalid or expired authentication token', 401, 'AUTH_TOKEN_INVALID');
   }

@@ -4,8 +4,10 @@ import app from './app.js';
 import { connectDatabase } from './config/database.js';
 import { env } from './config/env.js';
 import { logger } from './config/logger.js';
+import { initializeSocketServer } from './sockets/socket-server.js';
 
 const server = http.createServer(app);
+initializeSocketServer(server);
 
 const startServer = async () => {
   await connectDatabase();
