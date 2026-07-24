@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import threading
-from main import CLOUDIMaster
+from src.main import CLOUDIMaster
 
 app = Flask(__name__)
 CORS(app)
@@ -9,8 +9,8 @@ CORS(app)
 stop_event = threading.Event()
 trading_bot = CLOUDIMaster()
 
-@app.route('/api/dashboard', methods=['GET'])
-def get_das
+@app.route('/api/dashboard') 
+def get_das():
     return jsonify({
         "balance": "1.25 ETH",
         "total_trades": "42 Executed",
