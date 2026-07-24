@@ -1,9 +1,0 @@
-{
-  "agent_id": 91,
-  "agent_domain": "cloudisync.com",
-  "oracle_address": "0x9E9759755F642340330D0aC7665798544e76aA7f",
-  "trading_pair": "BTCUSD",
-  "mock_mode": true,
-  "cli_binary": "kraken",
-  "exchange": "Aerodrome"
-}
