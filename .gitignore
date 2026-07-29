@@ -3,6 +3,7 @@ node_modules/
 
 # Environment files
 .env
+.venv
 .env.*
 !.env.example
 
@@ -12,6 +13,8 @@ build/
 coverage/
 .vite/
 .cache/
+__pycache__/
+*.pyc
 
 # Logs
 *.log

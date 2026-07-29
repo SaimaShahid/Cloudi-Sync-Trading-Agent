@@ -10,15 +10,15 @@ from openai import OpenAI  # Fireworks AI uses standard OpenAI client format
 # --- FUNCTIONS ---
 def load_agent_skills():
     import os
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    surge_skill_path = os.path.join(base_dir, "skills", "surge-openclaw", "SKILL.md")
-    
+    base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    surge_skill_path = os.path.join(base_dir, "skills", "SKILL.md")
+
     try:
         if os.path.exists(surge_skill_path):
             with open(surge_skill_path, "r", encoding="utf-8") as f:
                 return f.read()
         else:
-            alt_path = os.path.join(os.getcwd(), "skills", "surge-openclaw", "SKILL.md")
+            alt_path = os.path.join(os.getcwd(), "skills", "SKILL.md")
             if os.path.exists(alt_path):
                 with open(alt_path, "r", encoding="utf-8") as f:
                     return f.read()
@@ -41,7 +41,7 @@ ORACLE_ADDRESS = config.get("oracle_address", "0x9E9759755F642340330D0aC76657985
 # --- FIREWORKS AI INITIALIZATION ---
 fireworks_client = OpenAI(
     base_url="https://api.fireworks.ai/inference/v1",
-    api_key=os.getenv("FIREWORKS_API_KEY")
+    api_key=os.getenv("FIREWORKS_API_KEY", "not-configured")
 )
 
 # Line 26: Ab bilkul sahi, line ke start mein bina kisi 'def' aur spaces ke!

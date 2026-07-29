@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* Surfaces (dark theme, stepping lighter = higher elevation) */
+  --color-background: #0a0c14;
+  --color-surface: #12131b;
+  --color-surface-container-low: #1a1b23;
+  --color-surface-container: #1f1f27;
+  --color-surface-container-high: #292932;
+  --color-surface-container-highest: #34343d;
+
+  /* Text */
+  --color-on-surface: #e3e1ed;
+  --color-on-surface-variant: #c6c5d7;
+
+  /* Borders */
+  --color-outline: #8f8fa0;
+  --color-outline-variant: #454655;
+
+  /* Brand */
+  --color-primary: #5b63f6;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #5865f2;
+  --color-primary-fixed: #bec2ff;
+
+  /* Semantic (financial UI: gains/losses, buy/sell, audit pass/fail) */
+  --color-success: #16c784;
+  --color-danger: #ea3943;
+  --color-warning: #f3ba2f;
+
+  /* Type */
+  --font-headline: 'Geist', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-container-high);
+  border-radius: 9999px;
+}

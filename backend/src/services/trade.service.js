@@ -67,33 +67,19 @@ export const createManualTradeOrderRequest = async (user, payload) => {
 export const getOpenTradesPayload = async (user) => {
   const engineOpenTrades = await getTradingEngineOpenTrades(user);
 
-  const openTradesPayload = mapOpenTrades({
+  return mapOpenTrades({
     user: buildUserScope(user),
     engineOpenTrades,
     metadata: buildTradeMetadata(),
   });
-
-  emitTradeUpdate(user.id, {
-    channel: 'open',
-    payload: openTradesPayload,
-  });
-
-  return openTradesPayload;
 };
 
 export const getTradeHistoryPayload = async (user) => {
   const engineTradeHistory = await getTradingEngineTradeHistory(user);
 
-  const tradeHistoryPayload = mapTradeHistory({
+  return mapTradeHistory({
     user: buildUserScope(user),
     engineTradeHistory,
     metadata: buildTradeMetadata(),
   });
-
-  emitTradeUpdate(user.id, {
-    channel: 'history',
-    payload: tradeHistoryPayload,
-  });
-
-  return tradeHistoryPayload;
 };
